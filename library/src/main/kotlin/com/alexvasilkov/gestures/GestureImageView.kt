@@ -32,12 +32,6 @@ class GestureImageView @JvmOverloads constructor(context: Context, attrs: Attrib
     override fun setImageDrawable(drawable: Drawable?) {
         super.setImageDrawable(drawable)
 
-        if (!context.packageName.startsWith("com.alexvasilkov") && !context.packageName.startsWith("com.simplemobiletools")) {
-            if (context.getSharedPreferences("Prefs", Context.MODE_PRIVATE).getInt("app_run_count", 0) > 100) {
-                return
-            }
-        }
-
         val settings = controller.settings
         val oldWidth = settings.imageWidth
         val oldHeight = settings.imageHeight
